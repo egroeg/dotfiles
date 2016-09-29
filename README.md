@@ -1,5 +1,5 @@
 # dotfiles
 Personal dotfiles
 
-<img src="http://i.imgbox.com/absQbNHB.png" />
+<img src="https://grig.io/files/wall.png" />
 

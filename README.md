@@ -1,2 +1,2 @@
 Personal dotfiles
-[!Screenshot] (https://grig.io/files/wall.png)
+![Screenshot] (https://grig.io/files/wall.png)

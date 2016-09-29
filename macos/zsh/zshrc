@@ -1,0 +1,99 @@
+zstyle :compinstall filename '$USERNAME/.zshrc'
+autoload -Uz compinit
+autoload -U colors
+colors
+compinit
+DISABLE_AUTO_UPDATE="true"
+
+setopt HIST_IGNORE_DUPS
+
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[4~" end-of-line
+
+export PATH=$PATH:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/sbin:$USERNAME/.rvm/bin
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+source $USERNAME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+ZSH_HIGHLIGHT_STYLES[default]='none'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red,bold,underline'
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=green'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=red'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan,bold'
+ZSH_HIGHLIGHT_STYLES[function]='fg=magenta'
+ZSH_HIGHLIGHT_STYLES[command]='fg=red,bold'
+ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=red,bold,standout'
+ZSH_HIGHLIGHT_STYLES[path]='fg=white,underline'
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue,bold'
+ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=magenta'
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=blue'
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=green'
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=red,bold'
+ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=red'
+ZSH_HIGHLIGHT_STYLES[assign]='fg=green,bold'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=cyan,bold'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=cyan'
+
+PS1="%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}%{$fg_bold[blue]%} % %{$reset_color%}"
+
+alias ranger='/usr/local/Cellar/ranger/1.7.1/bin/ranger'
+alias sudo='sudo ' #important do not remove
+alias ls='ls -G'
+alias ducks='du -cks * | sort -rn | head -11'
+alias diff='colordiff'
+alias openports='sudo lsof -P -i -n | cut -f 1 -d " "| uniq | tail -n +2'
+alias rdesktop='rdesktop -g 1024x768'
+alias cp='cp -i'
+alias mv='mv -i'
+alias ln='ln -i'
+alias grep='grep --color=auto'
+alias cal='cal |grep -A7 -B7 --color=auto $(date +%d)'
+alias locate='locate -e'
+alias weechat='weechat-curses'
+alias minicom='sudo minicom -s -c on'
+alias iplist="grep -Eao '((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'"
+alias df='dfc -T'
+alias -s pdf='mupdf'
+alias -s {jpg,png,gif}='feh'
+alias -s {wmv,mp4,avi,flv,mkv,mp3,ogg,flac,wav}='mplayer'
+alias -s py='python'
+
+export EDITOR='vim'
+export BROWSER='elinks'
+export TERM='xterm'
+
+export HISTFILE=~/.bash_history
+export HISTSIZE=500000
+export SAVEHIST=500000
+setopt appendhistory
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt sharehistory
+
+
+whatismyip() { wget -q -O - checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'; }
+extract() {
+    if [ -f "$1" ] ; then
+        case "$1" in
+            *.tar.bz2) tar xjf "$1" ;;
+            *.tar.gz) tar xzf "$1" ;;
+            *.tar.Z) tar xzf "$1" ;;
+            *.bz2) bunzip2 "$1" ;;
+            *.rar) unrar x "$1" ;;
+            *.gz) gunzip "$1" ;;
+            *.jar) unzip "$1" ;;
+            *.tar) tar xf "$1" ;;
+            *.tbz2) tar xjf "$1" ;;
+            *.tgz) tar xzf "$1" ;;
+            *.zip) unzip "$1" ;;
+            *.Z) uncompress "$1" ;;
+            *.7z) 7z x "$1" ;;
+            *) echo "'$1' cannot be extracted" ;;
+        esac
+    else
+        echo "'$1' is not a file"
+    fi
+}
+cmdfu() { curl "http://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ | openssl base64)/plaintext"; }
+xkcd() { wget -qO- http://xkcd.com/|tee >(feh $(grep -Po '(?<=")http://imgs[^/]+/comics/[^"]+\.\w{3}'))|grep -Po '(?<=(\w{3})" title=").*(?=" alt)';}
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

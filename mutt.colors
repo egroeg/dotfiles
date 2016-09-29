@@ -1,0 +1,76 @@
+# $Id$
+#
+# Description: Mutt color scheme to use when colors are appropriate
+# See: http://www.mutt.org/doc/devel/manual.html#color
+
+
+
+# -[ DEFAULT COLOR DEFINITIONS ]-----------------------------------------------
+
+#color hdrdefault default        default
+color quoted     red            default
+color quoted1    magenta        default
+color quoted2    brightblue     default
+color quoted3    yellow         default
+color quoted4    red            default
+color signature  black          default
+#color indicator  brightgreen    brightblack
+color indicator  red            default
+color attachment magenta        default
+color error      red            default
+color message    white          default
+color search     white          default
+color status     brightblack    default
+color tree       white          default
+color normal     white          default
+color tilde      green          default
+color bold       white          default
+color markers    red            default
+
+# -[ COLOUR DEFINITIONS WHEN ON A MONO SCREEN ]--------------------------------
+
+mono bold        bold
+mono underline   underline
+mono indicator   reverse
+
+# -[ COLOURS FOR ITEMS IN THE READER ]-----------------------------------------
+
+color header     white          black           "^(Date|From|To|Reply-To|X-Mailer|Cc|Organization):"
+color header     brightmagenta  black           "^(Subject):"
+color header     red            default         "^X-Junked-Because:"
+mono  header     bold                           "^(From|Subject|X-Junked-Because):"
+
+# -[ COLOURS FOR ITEMS IN THE INDEX ]------------------------------------------
+
+color index     brightblack     white           ~N
+color index     red             default         ~F # Flagged
+color index     white           red             ~T # Tagged
+color index     white           default         ~D
+mono  index     bold                            ~N
+mono  index     bold                            ~F
+mono  index     bold                            ~T
+mono  index     bold                            ~D
+
+# -[ HIGHLIGHTS INSIDE THE BODY OF A MESSAGE. ]--------------------------------
+
+color body      red              default         "(Monitor|http|https|ftp|news|telnet)://[^ \">\t\n]*"
+color body      magenta          default         "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+color body      brightblack      default         "news:[^ \">\t\n]*"
+mono  body      bold                             "(http|https|ftp|news|telnet)://[^ \">\t\n]*"
+mono  body      bold                             "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+mono  body      bold                             "news:[^ \">\t\n]*"
+
+# -[ EMAIL ADDRESSES ]---------------------------------------------------------
+
+color body      brightgreen      default         "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+mono  body      bold                             "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+# -[ VARIOUS SMILIES AND THE LIKE ]--------------------------------------------
+
+color body      brightgreen     default         "<[Gg]>"                                                # <g>
+color body      brightgreen     default         "<[Bb][Gg]>"                                            # <bg>
+color body      brightgreen     default         " [;:]-*[)>(<|]"                                        # :-) etc...
+color body      brightgreen     default         "(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$)"     # *Bold* text.
+color body      brightgreen     default         "(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)"         # _Underlined_ text.
+color body      brightgreen     default         "(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)"         # /Italic/ text.
+

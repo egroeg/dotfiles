@@ -35,7 +35,6 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=cyan'
 
 PS1="%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}%{$fg_bold[blue]%} % %{$reset_color%}"
 
-alias ranger='/usr/local/Cellar/ranger/1.7.1/bin/ranger'
 alias sudo='sudo ' #important do not remove
 alias ls='ls -G'
 alias ducks='du -cks * | sort -rn | head -11'
@@ -59,7 +58,6 @@ alias -s py='python'
 
 export EDITOR='vim'
 export BROWSER='elinks'
-export TERM='xterm'
 
 export HISTFILE=~/.bash_history
 export HISTSIZE=500000
@@ -95,5 +93,3 @@ extract() {
 }
 cmdfu() { curl "http://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ | openssl base64)/plaintext"; }
 xkcd() { wget -qO- http://xkcd.com/|tee >(feh $(grep -Po '(?<=")http://imgs[^/]+/comics/[^"]+\.\w{3}'))|grep -Po '(?<=(\w{3})" title=").*(?=" alt)';}
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

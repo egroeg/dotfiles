@@ -1,0 +1,85 @@
+! -------------------------------------------------- ~/.Xdefaults----
+! -------------------------------------------------------------------
+
+! --- special colors ---
+
+! magentas
+! *color5: #A673A6
+! *color13: #7F5AA1
+! *color5: #bb77a4
+! *color13: #7F5AA1
+ 
+! whites
+!*foreground : #B7BBBD
+!*foreground : #CCCCCC
+
+! magenta
+! *foreground : #bb77a4
+! oranges
+! other oranges(current foreground color)
+! *foreground : #FF590F !this one
+! orange-red
+! *foreground : #FF4500
+! medium vermillion 
+!*foreground : #D9381E
+! chinese red
+!*foreground : #AA381E
+
+! *buffered: false
+
+ *foreground : #FF590F
+ *background : #303030
+
+
+! --- options ---
+
+! *font: xft:inconsolata:size=9:dpi=96
+! *boldFont: xft:inconsolata:style=Bold:size=9:dpi=96
+
+! *font: xft:DejaVuSansMono:size=8:dpi=96
+! *boldFont: xft:DejaVuSansMono:style=Bold:size=8:dpi=96
+ 
+ URxvt.perl-ext-common: default,matcher
+ URxvt.url-launcher: /usr/bin/firefox
+ URxvt.matcher.button: 1
+
+ *font: xft:pragmata:size=8.5:dpi=96
+ *boldFont: xft:pragmata:style=Bold:size=8.5:dpi=96
+ Xft.hinting: true
+ Xft.antialias: true
+ Xft.hintstyle: hintslight 
+ *scrollBar: false
+ *geometry:   95x15
+ *cursorBlink: true
+ *cursorUnderline: true
+ *internalBorder: 6
+ *cursorColor: #CC00CC
+! *underlineColor: red
+! *insecure: true
+ *urgentOnBell: true
+! --- standard colors ---
+
+!black
+ *color0: #2E1F1F
+ *color8: #422D2D
+!red
+ *color1: #AA0E50
+ *color9: #BE0E50
+!green
+ *color2:  #688c7d
+ *color10: #688c7d
+!yellow
+ *color3: #27C282
+ *color11: #2CDB93
+!blue
+ *color4: #7182A8
+ *color12: #8194BF
+!magenta
+ *color13: #A673A6
+ *color5: #bb77a4
+!cyan
+ *color6: #6DA3A1
+ *color14: #669997
+!white
+ *color7: #B7BBBD
+ *color15: #D9D9D9

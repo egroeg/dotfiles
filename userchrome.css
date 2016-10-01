@@ -1,0 +1,305 @@
+/*
+ * Edit this file and copy it as userChrome.css into your
+ * profile-directory/chrome/
+ */
+
+/*
+ * This file can be used to customize the look of Mozilla's user interface
+ * You should consider using !important on rules which you want to
+ * override default settings.
+ */
+
+/*
+ * Do not remove the @namespace line -- it's required for correct functioning
+ */
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* set default namespace to XUL */
+
+/*start new*/
+
+ /* Autohide bookmark toolbar */
+ #PersonalToolbar {
+  visibility: collapse !important;
+ }
+ 
+  /* Get rid of the bottom border */
+  #TabsToolbar:after {
+      border-bottom: 0px !important;
+      visibility:hidden !important;
+  }
+  
+  /* Hide the new curved tab edges */
+  .tab-background {
+  /*   visibility: hidden !important; */
+     opacity: 0 !important;
+ }
+ 
+ /* Hide the little graphic seperator between inactive tabs */
+ .tabbrowser-tab:before,
+ .tabbrowser-tab:after { 
+     visibility: hidden !important;
+ }
+ 
+ /* Reduce the padding around the contents of a tab */
+ .tabbrowser-tab .tab-content,
+ .tabbrowser-tab[selected] .tab-content {
+     padding: 0 2px 7px 5px !important; 
+ }
+ 
+/*
+ #TabsToolbar {
+ -moz-appearance: none !important;
+     background: #dedede !important; 
+     height: 22px !important;
+ }
+ */
+ /* Mostly hacks to try deal with tab overflow, it's not pretty */
+ #tabbrowser-tabs {
+     margin-left: -15px !important;
+     margin-right: -15px !important;
+ }
+ 
+ #tabbrowser-tabs ~ #alltabs-button { 
+     padding-left: 15px !important;
+ }
+ 
+ /* Make the tab expand to fill the maximum width*/ 
+ .tabbrowser-tab {
+     max-width: 100% !important;
+ }
+ 
+/* .tabbrowser-tab[selected] {
+     background: #787777 !important;
+     color: #efefef !important;
+ } */
+
+/* end new */
+.tab-icon { 
+  display: none; 
+}
+.tabbrowser-tab .tab-icon-image {
+  visibility: hidden !important;
+}
+#urlbar-icons > #star-button {
+  display: none !important;
+}
+#feed-button {
+  display: none !important
+}
+#urlbar[level] .autocomplete-textbox-container >* {
+  background-color: #FFFFB7 !important;
+}
+.autocomplete-history-dropmarker { 
+  display: none !important;
+}
+#urlbar-icons > #go-button {
+   display:   none !important;
+}
+/* Hide Tabbar close Button */ 
+tabbrowser .tabs-closebutton-box { 
+  display: none; 
+}
+/* PERSONAL TOOLBAR */
+/*
+ * Note: Rules affecting icons on the PT do not apply to folder contents.
+ * Those are governed by "Bookmarks menu" rules.
+ * Taken from: http://www.mozilla.org/unix/customizing.html#usercss
+ */
+
+/* Kill bookmark icons in the Personal Toolbar */
+toolbarbutton.bookmark-item > .toolbarbutton-icon {
+  display: none;
+}
+/* BOOKMARKS MENU */
+
+/* Kill "normal" bookmark icons in the bookmarks menu */
+menuitem.bookmark-item > .menu-iconic-left {
+  display: none;
+}
+
+/* Other examples: */
+
+/* kill icons for bookmark folders in Bookmarks menu */
+menu.bookmark-item > .menu-iconic-left {
+  display: none;
+}
+
+/* kill icons for bookmark groups in Bookmarks menu */
+menuitem.bookmark-group > .menu-iconic-left {
+  display: none;
+}
+/* hide favicon placeholder in Address url toolbar http://support.mozilla.com/tiki-view_forum_thread.php?locale=el&forumId=1&comments_parentId=170737*/ 
+#page-proxy-stack {
+  display:none!important
+}
+
+/*hide noscript icon in contextual menu*/
+  /*
+  .menu-iconic[id*="noscript-"] > .menu-iconic-left
+  .menu-iconic[class*="noscript-"] > .menu-iconic-left
+  .menuitem-iconic[class*="noscript-"] > .menu-iconic-left {
+   visibility: hidden !important;
+ }
+ */
+
+/*hide icons in right click*/
+#contentAreaContextMenu menuitem .menu-iconic-left,
+#contentAreaContextMenu menu .menu-iconic-left {
+ visibility: hidden !important;
+}
+
+    /* Show Stop and Reload buttons smartly*/
+
+    #stop-button[disabled] {    display: none;}
+
+    #stop-button:not([disabled]) + #reload-button {
+        display: none;
+    }
+
+.tabs-newtab-button {
+        display: none !important;
+        border: none !important;
+        margin: 0 !important;
+}
+
+/*
+.tabbrowser-tab[selected="true"] {
+        border: none !important;
+         font-family: "pragmata" !important; 
+        border-radius: 0 !important;
+        padding-left: 5px !important; 
+        padding-right: 5px !important; 
+}
+
+.tabbrowser-tab:not([selected="true"]) { 
+        border: none !important;
+        font-family: "pragmata" !important; 
+        background: #fff !important;        
+        border-radius: 0 !important;
+        padding-left: 5px !important; 
+        padding-right: 5px !important;
+        
+}*/
+
+{
+    -moz-appearance: none !important;
+}
+
+#content browser {
+margin-right:-16px!important;
+overflow-y:scroll;overflow-x:hidden;
+}
+
+.appmenu-button-container {
+    background: #303030 !important;
+}
+
+#navigator-toolbox #TabsToolbar, {
+    background: #303030 !important;
+}
+
+#appmenu-toolbar-button,
+.tabbrowser-tab
+{
+    font: 8pt "pragmata" !important;
+    background-color: #262626 !important;
+    text-shadow: none !important;
+    color: #676767 !important;
+}
+
+/*
+#urlbar
+{
+    height: 22px;
+}
+*/
+#go-button,
+#star-button,
+.tab-close-button,
+.autocomplete-history-dropmarker,
+.tabbrowser-tab[label="New Tab"]:not([blah]) .tab-icon-image,
+.tabbrowser-tab .tab-icon-image
+{
+    display: none !important;
+}
+
+.appmenu-toolbar-button
+{
+    background: #262626 !important;
+    color: #676767 !important;
+    text-align: left !important;
+    margin: 0 3px 0 0px !important;
+    padding: 0 0 0 0 !important;
+}
+
+.toolbarbutton-menu-dropmarker
+{
+    display: none !important;
+}
+
+#navigator-toolbox #TabsToolbar
+{
+    background: #262626 !important;
+    padding: 0px 0px !important;
+    height: 20px !important;
+}
+
+.tabbrowser-tab {
+    text-align: center !important;
+    color: #676767 !important;
+    background: #262626 !important;
+    margin: -2px 0px 0px 0px !important;
+    padding: 0px 2px 0px 4px !important;
+    border: 0 !important;
+    border-left: 0px solid #676767 !important;
+    border-right: 0px solid #676767 !important;
+    border-radius: 0px !important;
+}
+.tabbrowser-tab[selected="true"] {
+    background: #212121 !important;
+    border-left: 0px solid #676767 !important;
+    border-right: 0px solid #676767 !important;
+    padding: 0px 2px 0px 3px !important;
+    color: #ababab !important;
+}
+
+/*Remove the throbber */
+#throbber-box {
+display: none !important;
+}
+
+/*Remove "firefox" text from ff button
+#appmenu-toolbar-button > .toolbarbutton-text,
+#appmenu-toolbar-button > .toolbarbutton-menu-dropmarker {
+  display: none !important;
+}
+
+/*
+ * Some possible accessibility enhancements:
+ */
+/*
+ * Make all the default font sizes 20 pt:
+ *
+ * * {
+ *   font-size: 20pt !important
+ * }
+ */
+/*
+ * Make menu items in particular 15 pt instead of the default size:
+ *
+ * menupopup > * {
+ *   font-size: 15pt !important
+ * }
+ */
+/*
+ * Give the Location (URL) Bar a fixed-width font
+ *
+ * #urlbar {
+ *    font-family: monospace !important;
+ * }
+ */
+
+/*
+ * For more examples see http://www.mozilla.org/unix/customizing.html
+ */
+ 

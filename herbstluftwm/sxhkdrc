@@ -1,0 +1,125 @@
+#####################################################
+## Locate: ${XDG_CONFIG_HOME}/herbstluftwm/sxhkdrc ##
+## author: Vincent Z (github.com/milomouse)        ##
+## detail: keybinding(s) for `herbstluftwm'        ##
+#####################################################
+## NOTE 1: spawned and killed from "xinitrc"       ##
+#####################################################
+
+###############################
+## Internal (herbstluftwm):  ##
+###############################
+
+#+ quit herbstluftwm
+super + {_,shift +} q
+    herbstclient {reload,chain - emit_hook quit_panel - quit}
+
+#+ close focused window
+super + c
+    herbstclient close
+
+#+ (lock|unlock) focused tag
+super + {_,shift +} x
+    herbstclient {lock,unlock}
+
+#+ rotate desktop layout
+super + shift + c
+    herbstclient rotate
+
+#+ cycle frame layout(s)
+super + {_,shift} + g
+    herbstclient cycle_layout {+,-}1 max vertical horizontal grid
+
+#+ choose frame layout(s)
+super + t : {m,v,h,g}
+    herbstclient set_layout {max,vertical,horizontal,grid}
+
+#+ reset frame layout to max
+super + a
+    herbstclient set_layout max
+
+#+ manually split frame at left or right
+super + {minus,equal}
+    herbstclient split {left,right} 0.5
+
+#+ manually split frame at top or bottom
+super + shift + {minus,equal}
+    herbstclient split {top,bottom} 0.5
+
+#+ resize window in direction
+super + r : {h,j,k,l}
+    herbstclient resize {left,down,up,right} +0.01
+
+#+ change focus or move window in direction
+super + {_,shift +} {h,j,k,l}
+    herbstclient {focus,shift} -e {left,down,up,right}
+
+#+ shift window to edge of tag in direction
+super + control + {h,j,k,l}
+    herbstclient shift_edge -e {left,down,up,right}
+
+#+ change window focus next/previous
+super + {_,shift +} space
+    herbstclient cycle {+,-}1
+
+#+ change focus to next/prev desktop occupied with client
+#super + {n,p}
+#    /howl/conf/herbstluftwm/tagswitch.sh {next,prev}
+
+#+ change focus to next/prev desktop
+super + {period,comma}
+    herbstclient use_index {+,-}1 --skip-visible
+
+#+ move window to next/prev desktop
+super + shift + {period,comma}
+    herbstclient move_index {+,-}1 --skip-visible
+
+#+ change focus between last desktop(s)
+super + slash
+    herbstclient use_previous
+
+#+ focus or pull urgent window
+super + {_,shift +} u
+    herbstclient {jumpto,bring} urgent
+
+#+ float/unfloat, fullscreen
+super + {f,s}
+    herbstclient {pseudotile,fullscreen} toggle
+
+#+ remove frame
+super + z
+    herbstclient remove
+
+########################
+## External:          ##
+########################
+
+#+ reload sxhkd config
+super + shift + s
+    pkill -USR1 -x sxhkd
+
+#+ spawn rxvt-unicode with tmux
+super + Return
+    urxvt 
+
+#+ spawn rxvt-unicode
+#super + shift + Return
+#    urxvt
+
+#+ spawn application launcher
+super + p
+    demu_run -b -i -sb '#b3432b' -l '3'
+
+#+ disable/enable/hide/unhide the mouse
+super + Escape
+    zaprat --toggle
+
+#+ refresh all windows
+super + b
+    xrefresh
+
+#+ yank screenshot of current desktop
+super + shift + y
+    import -window root ~/img/shot/$(date '+%Y_%m_%d-%H%M%S').png
+
+# vim: set ft=sxhkdrc:

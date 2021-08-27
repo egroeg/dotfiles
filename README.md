@@ -6,6 +6,4 @@ Window Manager: [Herbstluftwm] (http://www.herbstluftwm.org)
 Window Manager: [bspwm] (http://www.github.com/baskerville/bspwm)
 ![Screenshot](screenshot/wall.png)
 
-Vimrc: Here's what vim and the font looks like.
 
-![Vim](screenshot/vim.png)
